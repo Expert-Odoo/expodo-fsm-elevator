@@ -1,0 +1,20 @@
+{
+    "name": "Elevator & Lift Field Service",
+    "summary": "Field service for elevators and lifts: equipment, specs, periodic regulatory inspection, safety checks and invoicing",
+    "description": "Turn Odoo Community into a service tool for elevator and lift maintenance companies. Log each unit, its type, capacity and floors served, follow the job from install or breakdown to invoice, track periodic regulatory inspections with due dates and certificate references, run the safety checks the job needs, and let customers track their service online.",
+    "version": "20.0.1.0.0",
+    "category": "Services/Field Service",
+    "license": "LGPL-3",
+    "author": "Expodo",
+    "website": "https://expodo.fr",
+    "support": "support@expodo.fr",
+    "images": ["static/description/banner.png", "static/description/icon.png"],
+    "depends": ["expodo_fieldservice"],
+    "data": [
+        "data/elevator_types.xml",
+        "views/elevator_views.xml",
+    ],
+    "application": True,
+    "installable": True,
+    "auto_install": False,
+}
