@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Form: Equipment, Specifications, Regulatory inspection, Safety checks -->
+    <record id="view_fsm_order_form_elevator" model="ir.ui.view">
+        <field name="name">expodo.fsm.order.form.elevator</field>
+        <field name="model">expodo.fsm.order</field>
+        <field name="inherit_id" ref="expodo_fieldservice.view_fsm_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="before">
+                <group string="Equipment" name="equipment">
+                    <group>
+                        <field name="lift_type"/>
+                        <field name="lift_brand"/>
+                        <field name="lift_model"/>
+                        <field name="serial_number"/>
+                    </group>
+                    <group>
+                        <field name="building"/>
+                        <field name="machine_location"/>
+                        <field name="install_date"/>
+                    </group>
+                </group>
+                <group string="Specifications" name="specs">
+                    <group>
+                        <field name="capacity_kg"/>
+                        <field name="capacity_persons"/>
+                    </group>
+                    <group>
+                        <field name="floors_served"/>
+                        <field name="travel_height_m"/>
+                    </group>
+                </group>
+                <group string="Regulatory Inspection" name="inspection">
+                    <group>
+                        <field name="last_inspection_date"/>
+                        <field name="next_inspection_date"/>
+                    </group>
+                    <group>
+                        <field name="inspection_body"/>
+                        <field name="compliance_ref"/>
+                    </group>
+                </group>
+                <group string="Safety Checks" name="safety">
+                    <group>
+                        <field name="brake_test_done"/>
+                        <field name="governor_test_done"/>
+                        <field name="door_interlock_ok"/>
+                    </group>
+                    <group>
+                        <field name="emergency_phone_ok"/>
+                        <field name="leveling_ok"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- List: add equipment and next inspection columns -->
+    <record id="view_fsm_order_list_elevator" model="ir.ui.view">
+        <field name="name">expodo.fsm.order.list.elevator</field>
+        <field name="model">expodo.fsm.order</field>
+        <field name="inherit_id" ref="expodo_fieldservice.view_fsm_order_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="lift_brand" optional="show"/>
+                <field name="next_inspection_date" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Kanban: show brand and type on the card -->
+    <record id="view_fsm_order_kanban_elevator" model="ir.ui.view">
+        <field name="name">expodo.fsm.order.kanban.elevator</field>
+        <field name="model">expodo.fsm.order</field>
+        <field name="inherit_id" ref="expodo_fieldservice.view_fsm_order_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='fsm_type_id']" position="after">
+                <div t-if="record.lift_brand.raw_value" class="mt-1">
+                    <span class="badge text-bg-secondary"><field name="lift_brand"/></span>
+                    <span t-if="record.lift_type.raw_value" class="badge text-bg-info ms-1">
+                        <field name="lift_type"/>
+                    </span>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Elevator app menu -->
+    <menuitem id="menu_root_elevator" name="Elevator Field Service" sequence="47"
+              groups="expodo_fieldservice.group_fsm_technician"/>
+    <menuitem id="menu_elevator_orders" name="Service Orders"
+              parent="menu_root_elevator" action="expodo_fieldservice.action_fsm_order" sequence="10"/>
+    <menuitem id="menu_elevator_config" name="Configuration"
+              parent="menu_root_elevator" sequence="90"
+              groups="expodo_fieldservice.group_fsm_manager"/>
+    <menuitem id="menu_elevator_types" name="Intervention Types"
+              parent="menu_elevator_config" action="expodo_fieldservice.action_fsm_type" sequence="10"/>
+    <menuitem id="menu_elevator_stages" name="Stages"
+              parent="menu_elevator_config" action="expodo_fieldservice.action_fsm_stage" sequence="20"/>
+
+</odoo>
