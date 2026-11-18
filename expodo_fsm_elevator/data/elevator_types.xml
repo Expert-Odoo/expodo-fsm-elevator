@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="type_install" model="expodo.fsm.type">
+            <field name="name">Installation</field>
+        </record>
+        <record id="type_install_s1" model="expodo.fsm.type.checklist">
+            <field name="type_id" ref="type_install"/><field name="sequence">10</field>
+            <field name="name">Install guide rails and car</field></record>
+        <record id="type_install_s2" model="expodo.fsm.type.checklist">
+            <field name="type_id" ref="type_install"/><field name="sequence">20</field>
+            <field name="name">Fit machine, ropes and counterweight</field></record>
+        <record id="type_install_s3" model="expodo.fsm.type.checklist">
+            <field name="type_id" ref="type_install"/><field name="sequence">30</field>
+            <field name="name">Wire controller and landing fixtures</field></record>
+        <record id="type_install_s4" model="expodo.fsm.type.checklist">
+            <field name="type_id" ref="type_install"/><field name="sequence">40</field>
+            <field name="name">Commission and set up safety devices</field></record>
+
+        <record id="type_maintenance" model="expodo.fsm.type">
+            <field name="name">Preventive Maintenance</field>
+        </record>
+        <record id="type_maint_s1" model="expodo.fsm.type.checklist">
+            <field name="type_id" ref="type_maintenance"/><field name="sequence">10</field>
+            <field name="name">Inspect machine, ropes and sheaves</field></record>
+        <record id="type_maint_s2" model="expodo.fsm.type.checklist">
+            <field name="type_id" ref="type_maintenance"/><field name="sequence">20</field>
+            <field name="name">Check and lubricate guide rails</field></record>
+        <record id="type_maint_s3" model="expodo.fsm.type.checklist">
+            <field name="type_id" ref="type_maintenance"/><field name="sequence">30</field>
+            <field name="name">Test doors, interlocks and levelling</field></record>
+        <record id="type_maint_s4" model="expodo.fsm.type.checklist">
+            <field name="type_id" ref="type_maintenance"/><field name="sequence">40</field>
+            <field name="name">Check emergency phone and lighting</field></record>
+
+        <record id="type_breakdown" model="expodo.fsm.type">
+            <field name="name">Repair / Breakdown</field>
+        </record>
+        <record id="type_bd_s1" model="expodo.fsm.type.checklist">
+            <field name="type_id" ref="type_breakdown"/><field name="sequence">10</field>
+            <field name="name">Free any trapped passengers safely</field></record>
+        <record id="type_bd_s2" model="expodo.fsm.type.checklist">
+            <field name="type_id" ref="type_breakdown"/><field name="sequence">20</field>
+            <field name="name">Diagnose the fault</field></record>
+        <record id="type_bd_s3" model="expodo.fsm.type.checklist">
+            <field name="type_id" ref="type_breakdown"/><field name="sequence">30</field>
+            <field name="name">Replace the faulty component</field></record>
+        <record id="type_bd_s4" model="expodo.fsm.type.checklist">
+            <field name="type_id" ref="type_breakdown"/><field name="sequence">40</field>
+            <field name="name">Return the lift to service and test</field></record>
+
+        <record id="type_inspection" model="expodo.fsm.type">
+            <field name="name">Regulatory Inspection</field>
+        </record>
+        <record id="type_insp_s1" model="expodo.fsm.type.checklist">
+            <field name="type_id" ref="type_inspection"/><field name="sequence">10</field>
+            <field name="name">Test brake and overspeed governor</field></record>
+        <record id="type_insp_s2" model="expodo.fsm.type.checklist">
+            <field name="type_id" ref="type_inspection"/><field name="sequence">20</field>
+            <field name="name">Verify door interlocks and safety gear</field></record>
+        <record id="type_insp_s3" model="expodo.fsm.type.checklist">
+            <field name="type_id" ref="type_inspection"/><field name="sequence">30</field>
+            <field name="name">Check emergency alarm and phone</field></record>
+        <record id="type_insp_s4" model="expodo.fsm.type.checklist">
+            <field name="type_id" ref="type_inspection"/><field name="sequence">40</field>
+            <field name="name">Record findings and issue certificate</field></record>
+
+        <record id="type_modernization" model="expodo.fsm.type">
+            <field name="name">Modernization</field>
+        </record>
+        <record id="type_mod_s1" model="expodo.fsm.type.checklist">
+            <field name="type_id" ref="type_modernization"/><field name="sequence">10</field>
+            <field name="name">Survey the existing installation</field></record>
+        <record id="type_mod_s2" model="expodo.fsm.type.checklist">
+            <field name="type_id" ref="type_modernization"/><field name="sequence">20</field>
+            <field name="name">Replace controller and drive</field></record>
+        <record id="type_mod_s3" model="expodo.fsm.type.checklist">
+            <field name="type_id" ref="type_modernization"/><field name="sequence">30</field>
+            <field name="name">Upgrade doors and fixtures</field></record>
+        <record id="type_mod_s4" model="expodo.fsm.type.checklist">
+            <field name="type_id" ref="type_modernization"/><field name="sequence">40</field>
+            <field name="name">Recommission and certify</field></record>
+
+    </data>
+</odoo>
